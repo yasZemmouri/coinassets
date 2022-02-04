@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+console.log(`${process.env.REACT_APP_COINASSETS_API_KEY}`) 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state={
+    baseURL: 'http://api.coinlayer.com/api/',
+    endPoint1: 'live?',
+    apiKey: `access_key=${process.env.REACT_APP_COINASSETS_API_KEY}`,
+    liveURL:`http://api.coinlayer.com/api/live?access_key=${process.env.REACT_APP_COINASSETS_API_KEY}` 
+    
+  }
+  render() {
+    return (
+      <div>
+        <a href={this.state.liveURL}>{this.state.liveURL}</a>
+      </div>
+    );
+  }
 }
 
 export default App;
