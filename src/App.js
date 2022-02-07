@@ -2,23 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [data, setData]=useState([])
+  const [coinsList, setCoinsList]=useState([])
   const [userInput, setUserInput]=useState('')
-
-  // useEffect(()=>{
-  //   axios.get('https://api.coinstats.app/public/v1/coins?skip=0&limit=100%C2%A4cy=INR')
-  //   .then(res=>setData(res.data.coins))
-  // })
+  // const [searchRes, setSearchRes]=useState({})
 
   useEffect(() => {
-    axios.get('https://api.coinstats.app/public/v1/coins?skip=0&limit=100¤cy=INR'
+    axios.get('https://api.coinstats.app/public/v1/coins?skip=0&limit=100&curreny=USD'
     ).then((res) =>
-      setData(res.data.coins));
+      setCoinsList(res.data.coins));
   }, []);
   
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log('searching for', userInput);
+    if(userInput){
+      console.log('searching for', userInput);
+      axios.get(`https://api.coinstats.app/public/v1/coins/${userInput.trim().toLowerCase().replace(' ', '-')}?currency=USD`)
+      .then(res=>setCoinsList([res.data.coin]))
+    }
+    setUserInput('')
   }
   const handleChange=e=>{
     setUserInput(e.target.value)
@@ -26,7 +27,8 @@ function App() {
 
   return (
     <div>
-      {console.log(data)}
+      {console.log(coinsList)}
+      {/* {console.log(coinsList)} */}
       <h1>Trade</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" 
@@ -48,7 +50,10 @@ function App() {
             <th>Volume 24hrs</th>
             <th>Watch</th>
           </tr>
-            {data.map((coin, id)=>{
+        </thead>
+        <tbody>
+
+            {coinsList.map((coin, id)=>{
               return(
                 <tr key={id}>
                   <td>{coin.rank}</td>
@@ -69,7 +74,7 @@ function App() {
               )
             })}
       
-        </thead>
+        </tbody>
       </table>
     </div>
   );
