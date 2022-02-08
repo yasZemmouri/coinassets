@@ -17,6 +17,8 @@ const Login = ({ setUser }) => {
     }
    
     return (
+        <div className="vh">
+            <div className="nav-spacer"></div>
         <form className="mx-auto border bg-white p-5" onSubmit={handleSubmit}>
             <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
@@ -29,6 +31,7 @@ const Login = ({ setUser }) => {
             </div>
             <button type="submit" className="btn btn-primary">LOGIN</button>
         </form>
+        </div>
     );
 }
 
