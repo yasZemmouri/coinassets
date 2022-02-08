@@ -20,7 +20,16 @@ svg:hover{
 }
 html{
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 body {
     margin: 15px;
+    font-family: -apple-system, Helvetica;
+    font-size: 1.6em
+}
+.logonimo{
+    font-weight: bold;
+}
+.contenero{
+    max-width: 1000px;
 }

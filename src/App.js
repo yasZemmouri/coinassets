@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CoinData from './components/CoinData';
+import Nav from './components/Nav';
 import './App.css'
 
 
@@ -41,6 +42,7 @@ function App() {
   return (
     <div>
       {console.log(coinsList)}
+      <Nav/>
       <h1>Trade</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" 
@@ -52,7 +54,7 @@ function App() {
       </form>
       {(loading &&  <img src='https://i.stack.imgur.com/hzk6C.gif' alt=''/>)|| 
       (coinsList[0] !==undefined &&
-      <table>
+      <table className="table table-striped table-hover">
         <thead>
           <tr>
             <th>Rank</th>

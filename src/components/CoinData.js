@@ -5,7 +5,7 @@ const CoinData = (props) => {
     const[active, setActive]=useState(false)
     console.log(props.coin.name);
     return (
-           <tr key={props.coin.name}>
+           <tr key={props.coin.id}>
               <td>{props.coin.rank}</td>
               <td>
                     <a href={props.coin.websiteUrl}><img src={props.coin.icon} alt="coin logo" width="30px" /></a>
