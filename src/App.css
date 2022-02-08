@@ -20,16 +20,52 @@ svg:hover{
 }
 html{
     box-sizing: border-box;
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
 }
 body {
     margin: 15px;
     font-family: -apple-system, Helvetica;
-    font-size: 1.6em
+    /* font-size: 1.6em; */
+    background-color: #e7e7e7;
 }
 .logonimo{
     font-weight: bold;
 }
 .contenero{
     max-width: 1000px;
+}
+table{
+    background-color: white;
+    cursor: pointer;
+}
+td, th{
+    white-space: nowrap
+}
+#userInput{
+    font-size: 1.6rem;
+    max-width: 500px;
+}
+#logomo{
+    font-weight: 800;
+}
+#busqueda{
+    font-size: 1em;
+}
+form{
+    max-width: 500px;
+   
+}
+.nav-spacer{
+    height: 70px;
+}
+h1{
+    font-weight: bold;
+}
+td,th{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+#loading{
+    display: block;
+    margin: auto;
 }

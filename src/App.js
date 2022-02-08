@@ -1,15 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { Routes, Route } from 'react-router-dom'
 import axios from 'axios';
 import CoinData from './components/CoinData';
 import Nav from './components/Nav';
+import UserContext from './contexts/UserContext';
+import Login from './pages/Login'
 import './App.css'
+
 
 
 function App() {
   const [coinsList, setCoinsList]=useState([])
   const [userInput, setUserInput]=useState('')
   const [loading, setLoading]=useState(false)
-  // const [searchRes, setSearchRes]=useState({})
+  const [user, setUser]=useState('')
+ 
 
   useEffect(() => {
     setLoading(true)
@@ -42,17 +47,26 @@ function App() {
   return (
     <div>
       {console.log(coinsList)}
-      <Nav/>
+      <UserContext.Provider value={user}>
+        <Nav/>
+        <Routes>
+        <Route path='login' element={<Login setUser={setUser}/>}></Route>
+        </Routes>
+      </UserContext.Provider>
+      
+      <main>
+        <div className="container">
+          <div class="nav-spacer"></div>
       <h1>Trade</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" 
-        id="userInput"
+      <form className="d-flex m-2 mx-auto" onSubmit={handleSubmit}>
+        <input type="search" 
+        id="userInput" className="form-control me-2" placeholder="Enter coin's name..." aria-label="Search" 
         onChange={handleChange}
         value={userInput}
         />
-        <button>Search</button>
+        <button id="busqueda" className="btn btn-outline-primary" type="submit">Search</button>
       </form>
-      {(loading &&  <img src='https://i.stack.imgur.com/hzk6C.gif' alt=''/>)|| 
+      {(userInput && loading &&  <img src='https://i.stack.imgur.com/hzk6C.gif' alt='' id="loading"/>)|| 
       (coinsList[0] !==undefined &&
       <table className="table table-striped table-hover">
         <thead>
@@ -80,6 +94,8 @@ function App() {
       </table>)||
       <h2>Coin not found</h2>
       }
+      </div>
+      </main>
     </div>
   );
 }

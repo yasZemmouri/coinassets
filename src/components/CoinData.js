@@ -9,7 +9,7 @@ const CoinData = (props) => {
               <td>{props.coin.rank}</td>
               <td>
                     <a href={props.coin.websiteUrl}><img src={props.coin.icon} alt="coin logo" width="30px" /></a>
-                  <span>{props.coin.name}</span>
+                  <span> {props.coin.name}</span>
                   </td>
                   <td>{props.coin.symbol}</td>
                   <td>{props.coin.marketCap.toLocaleString('en-US',{
