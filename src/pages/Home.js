@@ -41,8 +41,8 @@ const Home = () => {
         <main>
         <div className="container">
           <div className="nav-spacer"></div>
-      <h1>Trade</h1>
-      <form className="d-flex m-2 mx-auto" onSubmit={handleSubmit}>
+          <h1>Trade</h1>
+          <form className="d-flex m-2 mx-auto" onSubmit={handleSubmit}>
         <input type="search" 
         id="userInput" className="form-control me-2" placeholder="Enter coin's name..." aria-label="Search" 
         onChange={handleChange}
@@ -50,6 +50,7 @@ const Home = () => {
         />
         <button id="busqueda" className="btn btn-outline-primary" type="submit">Search</button>
       </form>
+      
       {(userInput && loading &&  <img src='https://i.stack.imgur.com/hzk6C.gif' alt='' id="loading"/>)|| 
       (coinsList[0] !==undefined &&
       <table className="table table-striped table-hover">
@@ -68,7 +69,8 @@ const Home = () => {
         <tbody>       
             {coinsList.map((coin)=>{
               return(
-                <CoinData coin={coin}/>
+                //the unique key should be in the map function.
+                <CoinData coin={coin} key={coin.id}/>
               )
             }
             

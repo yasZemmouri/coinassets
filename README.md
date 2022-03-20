@@ -1,3 +1,13 @@
+IDEAS
+maybe put search result in a different component 
+add some information about the coin
+use some string formatting
+.substring(0,4)
+possibilite of wishlist search result. maybe same component as table row??
+watch lis add to context api which allows us to access data from any component??
+create folder context and a file GlobalState.js
+What's a provider???
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

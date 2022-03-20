@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import UserContext from '../../contexts/UserContext';
-import { useNavigate } from 'react-router-dom';
  
 
 const Nav = () => {
@@ -25,13 +24,13 @@ const Nav = () => {
               !user ?
               <ul className="navbar-nav">  
                 <li className="nav-item">
-                <Link className="nav-link" to="login" onClick={()=>{navigate('pages/Login')}}><button type="submit" className="btn btn-primary" >LOGIN</button></Link>
+                <Link className="nav-link" to="login" onClick={()=>{navigate('/Login')}}><button type="submit" className="btn btn-primary" >LOGIN</button></Link>
                 </li>
               </ul>  
               :
               <ul className="navbar-nav ">
                 <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="watch">WatchList</Link>
+                <Link className="nav-link active" to="watchlist">Watch List</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="assets">My Assets</Link>

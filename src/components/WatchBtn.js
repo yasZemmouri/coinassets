@@ -1,4 +1,5 @@
-const Watchbtn = () => {
+const Watchbtn = (props) => {
+    console.log('isActive: ' + props.isActive);
     return (
         <button aria-label="add to watchlist" aria-selected="true">
             <svg hight="23" width="24" viewBox="0 0 24 23" filled="1" fill="none" focusable="false" aria-hidden='true' >

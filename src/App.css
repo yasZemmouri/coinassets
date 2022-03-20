@@ -6,11 +6,11 @@ svg{
     cursor: pointer;
     stroke: #0052FF
 }
-svg:hover{
+/* svg:hover{
     fill: transparent;
     stroke: lightgray
     
-}
+} */
 *{
     margin: 0;
     padding: 0;
